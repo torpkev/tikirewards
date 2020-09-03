@@ -1,1 +1,1 @@
-# tikirewards
+# loreset

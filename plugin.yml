@@ -1,0 +1,10 @@
+name: TikiRewards
+main: work.torp.tikirewards.Main
+version: 1.2
+api-version: 1.13
+Softdepend: [Vault]
+commands:
+   reward:
+      description: Runs the rewards commands
+      usage: /reward
+      aliases: [tikireward]

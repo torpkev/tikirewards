@@ -1,0 +1,32 @@
+Name:    Tiki Rewards
+Version: 1.0
+License: Free
+
+Tiki Rewards allows you to provide rewards to your players for helping out, donating, online time or just because
+
+You can specify multiple reward ranks which provide various types of rewards, including:
+- Being added to a specific group
+- In-Game money (check your ToS before using)
+- Items
+- Spawners
+
+Any in-game item can be given to the user and can be custom lore-tagged for tracking purposes.
+Tagging adds the reward type, the player name and date of reward to the lore.  With this, you can see why a player may have a reward item (for example, an elytra).  Tagging is intended only for non-block items, though you can tag blocks, if placed and broken they will lose their tag.
+Mob spawners will be created with their proper mob type, will be automatically tagged.  When placed, they will be tracked and an admin can locate them via a command.  If broken, the item will vanish and be available to claim again.
+
+To prevent players not being able to receive their reward items if offline or if they have a full inventory, the items will not be automatically given, but instead held internally until the player claims them. 
+
+Players can be set to automatically be placed in a group as part of their reward, and can be set to automatically be removed from other groups as needed - this prevents overlap of different levels of reward.  You can prevent the player being removed from any particular group by setting up the keep_groups list in the configuration. 
+
+Permissions:
+tikirewards.give  - Allows the player to run the /reward give and /reward list commands
+tikirewards.claim - Allows a player to claim a donation item (assign to all members)
+tikirewards.debug - Allows the player to toggle debug mode and view the config in the console
+tikirewards.spawner.break - Allows the player to break the spawner and return it to inventory
+
+Usage:
+/reward give <player uuid> <rank>  	-  Give a reward rank and associated items/groups.
+/reward list                  		-  Lists the available reward ranks
+/reward claim                 		-  Allows the player to claim their reward rank/items/groups
+/reward debug                 		-  Toggles the debug logging to console and logfile   
+/reward debugconfig           		-  Displays the configuration data in the console

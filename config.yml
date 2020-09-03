@@ -1,0 +1,158 @@
+#===================================================================
+# Tiki Rewards config - version 1.0
+#===================================================================
+# rank is the reward-rank you want to assign to a player - you can reward the player with items, in-game cash and custom groups
+# --------------------------------------
+# EXAMPLE
+# --------------------------------------
+# rank:
+#     smalldonor:
+#         # name - This is the display name for the donation
+#         name: Small Donation
+#         # player_msg - This is the message sent to the player (if online).  Use <%player%> for player name.
+#         player_msg: Thank you for donating!
+#         # broadcast - This is the message broadcast to the server.  Use <%player%> for the player name
+#         broadcast: <%player%> has donated to help keep the server running!
+#         # groups - This is the list of groups to add the player to
+#         groups:
+#           - SmallDonor
+#         # remove_other_groups - This true/false flag indicates if the player should be dropped from any group not listed in keep_groups below
+#         remove_other groups: true
+#         # keep_groups - This is a list of groups to keep the player in, only applicable if remove_other_groups = true
+#         keep_groups:
+#           - Owner
+#           - Manager
+#           - Admin
+#           - Mod
+#           - Member
+#         # cash - This is the amount of cash to give the player, if Vault and a Vault supported economy plugin is installed.
+#         # Warning: Be aware of your ToS before offering in-game cash in exchange for donations
+#         cash: 200
+#         # items - This is a list of items, with a count to give to the player.  These item names should match the internal
+#         # minecraft names, any mis-typed will be disregarded.  The name option is an optional field for a more user friendly
+#         # name to be entered for the item.  The count is the amount of items to give.  The true/false tag flag
+#         # is intended for non-block items such as villager eggs, elytra etc. Each item can be tagged.  If the tag is set to true, 
+#         # the item will have the players name, donation rank and date added to the item lore.  If the item is a block, if the item 
+#         # is placed and then broken the tag will be lost.  
+#         # Make sure the player has enough free space in their inventory before issuing this donor command.
+#         items: 
+#           VILLAGER_SPAWN_EGG: 
+#             name: Villager Spawn Egg    # name is optional
+#             count: 2
+#             tag: true
+#         # spawners - This is a list of mob spawners to give the player.  The type should match the entity name within minecraft
+#         # any mis-typed will be disregarded.  The count is the number of spawners to give. Spawners are automatically tagged and 
+#         # will have their location saved, if placed and then broken,  the tag will be reapplied.
+#         spawners:
+#           PIG:
+#             count: 1
+# --------------------------------------
+#===================================================================
+rank:
+    helper:
+        name: All-star helper
+        player_msg: You're a great helper!
+        broadcast: <%player%> has been rewarded for being a great helper
+        add_groups:
+          - Helper
+        remove_other_groups: false
+        cash: 100
+        items:
+          VILLAGER_SPAWN_EGG:
+            name: Villager Spawn Egg
+            count: 1
+            tag: true
+          DIAMOND:
+            name: Diamond
+            count: 5
+            tag: false        
+    small:
+        name: Small Donation
+        player_msg: Thank you for donating!
+        broadcast: <%player%> has donated to help keep the server running!
+        add_groups: 
+          - SmallDonor
+        remove_other_groups: true
+        keep_groups:
+          - Owner
+          - Manager
+          - Admin
+          - Mod
+          - Member
+          - MediumDonor
+          - LargeDonor
+        cash: 200
+        items: 
+          VILLAGER_SPAWN_EGG:
+            name: Villager Spawn Egg
+            count: 2
+            tag: true
+        spawners:
+          PIG:
+            count: 1
+    medium:
+        name: Medium Donation
+        player_msg: Thank you for donating!
+        broadcast: <%player%> has donated to help keep the server running!
+        add_groups: 
+          - MediumDonor
+        remove_other_groups: true
+        keep_groups:
+          - Owner
+          - Manager
+          - Admin
+          - Mod
+          - Member
+          - SmallDonor
+          - LargeDonor
+        cash: 500
+        items: 
+          DIAMOND: 
+            count: 32
+            tag: false
+          VILLAGER_SPAWN_EGG:
+            count: 6
+            tag: true
+        spawners:
+          PIG:
+            count: 1
+          ZOMBIE:
+            count: 1
+    large:
+        name: Large Donation
+        player_msg: Thank you for donating!
+        broadcast: <%player%> has donated to help keep the server running!
+        add_groups: 
+          - LargeDonor
+        remove_other_groups: true
+        keep_groups:
+          - Owner
+          - Manager
+          - Admin
+          - Mod
+          - Member
+          - SmallDonor
+          - MediumDonor
+        cash: 1000
+        items: 
+          DIAMOND:
+            count: 64
+            tag: false
+          ELYTRA:
+            count: 1
+            tag: true
+          VILLAGER_SPAWN_EGG:
+            count: 10
+            tag: true
+        spawners:
+          PIG:
+            count: 1
+          COW:
+            count: 1
+          SPIDER:
+            count: 1
+          ZOMBIE:
+            count: 1
+nag_seconds: 1200 
+verbose_logging: true
+debug_logging: true
